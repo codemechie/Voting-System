@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Voting System App</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+    <header class="site-header">
+        <h1>Voting System App</h1>
+        <h2>Vote for your favourite party!</h2>
+    </header>
 
+    <main>
+        <section class="container">
+            <div class="vote-container-heading">
+                <h3>Vote for any one party below</h3>
+                <p>Please don't vote if you already voted.</p>
+            </div>
+
+            <div class="party-button-container">
+                <button id="nc" class="party-button">NC</button>
+                <button id="pdp" class="party-button">PDP</button>
+                <button id="congress" class="party-button">Congress</button>
+                <button id="jklf" class="party-button">JKLF</button>
+
+                <dialog id="confirm-dialog" class="hide" aria-hidden="true" role="dialog" aria-modal="true">
+                    <button type="button" class="dialog-close" aria-label="Close">✕</button>
+                    <div class="dialog-body">
+                        <p class="dialog-message">Are you sure you want to vote for <strong class="choice"></strong>?</p>
+                    </div>
+                    <div class="dialog-footer">
+                        <button id="no-button" class="confirm-button btn-secondary">No</button>
+                        <button id="yes-button" class="confirm-button btn-primary">Yes</button>
+                    </div>
+
+                    <!-- Voter ID input (hidden until Yes is clicked) -->
+                    <div class="dialog-input" id="voter-input" hidden aria-hidden="true">
+                        <label for="voter-id" class="visually-hidden">Enter your user id</label>
+                        <input id="voter-id" name="voter-id" type="text" placeholder="Enter your user id" />
+                        <div class="input-row">
+                            <button id="enter-button" class="confirm-button btn-primary">Submit</button>
+                        </div>
+                        <p class="input-warning" id="input-warning" aria-live="polite"></p>
+                    </div>
+                </dialog>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
